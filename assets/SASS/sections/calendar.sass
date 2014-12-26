@@ -1,0 +1,66 @@
+.calendarwrap
+    table
+        margin: 50px auto
+        border-collapse: separate
+        border-spacing: 4px
+        box-shadow: 1px 1px 4px black
+        background-color: #ddd
+        
+        td, th
+            border: 1px solid grey
+            width: 50px
+            height: 40px
+            padding: 5px
+            text-align: right
+
+        th
+            text-align: center
+            border: none
+        
+        th:nth-child(3)
+
+        
+        th:nth-child(4)
+
+        
+        td
+            text-align: right
+            vertical-align: top
+            cursor: pointer
+            
+            &:hover, &:focus
+                box-shadow: 1px 1px 5px black
+                outline: 0
+            
+            span
+                color: #999
+                font-size: 12px
+                display: block
+            
+        tr:nth-child(2)
+            td
+                text-align: center
+                vertical-align: middle
+                height: 30px
+                font-size: 12px
+                font-weight: bold
+                cursor: default
+                border: none
+                
+                &:hover
+                    box-shadow: none
+        
+        #today
+            font-size: 22px
+            color: #0a0
+
+            
+                
+        #minusmonth, #plusmonth, #minusyear, #plusyear
+            cursor: pointer
+            &:hover, &:focus
+                outline: 0
+                background-color: #666
+                color: #ccc
+        .noborder
+            border: none
