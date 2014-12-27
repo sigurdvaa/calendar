@@ -1,27 +1,20 @@
 .calendarwrap
+    width: 498px
+    margin: 0 auto
     table
         margin: 50px auto
-        border-collapse: separate
-        border-spacing: 4px
-        box-shadow: 1px 1px 4px black
+        box-shadow: 1px 1px 4px grey
         background-color: #ddd
         
         td, th
             border: 1px solid grey
-            width: 50px
+            width: 60px
             height: 40px
             padding: 5px
-            text-align: right
 
         th
             text-align: center
             border: none
-        
-        th:nth-child(3)
-
-        
-        th:nth-child(4)
-
         
         td
             text-align: right
@@ -29,7 +22,7 @@
             cursor: pointer
             
             &:hover, &:focus
-                box-shadow: 1px 1px 5px black
+                box-shadow: 1px 1px 4px black
                 outline: 0
             
             span
@@ -51,10 +44,9 @@
                     box-shadow: none
         
         #today
-            font-size: 22px
+            font-size: 24px
             color: #0a0
-
-            
+            padding-top: 2px
                 
         #minusmonth, #plusmonth, #minusyear, #plusyear
             cursor: pointer
@@ -62,5 +54,17 @@
                 outline: 0
                 background-color: #666
                 color: #ccc
+                
         .noborder
             border: none
+            cursor: default
+            &:hover
+                box-shadow: none
+        .sunday
+            color: #c00
+        .special
+            color: #c00
+            font-weight: bold
+            
+        #today.special
+            color: #c00
