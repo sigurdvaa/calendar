@@ -58,7 +58,7 @@ function getCalInfo(when) {
     secs = secs < 10 ? '0' + secs : secs;
     
     time = "<span>" + hours + ":" + mins + ":" + secs + "</span>";
-        
+
     function nameMonth(nr){
         var names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Desember");
         return names[nr];
@@ -96,24 +96,24 @@ function getCalInfo(when) {
     }
     
     var listForMonth;
-    
+   
     buildSpecialDaysLists();
-    
+  
     function buildSpecialDaysLists() {
-        
+                 
         listForMonth = new Array(12);
-            listForMonth[0] = new Array(1);
-            listForMonth[1] = new Array();
-            listForMonth[2] = new Array(29);
-            listForMonth[3] = new Array();
-            listForMonth[4] = new Array(1, 17);
-            listForMonth[5] = new Array();
-            listForMonth[6] = new Array();
-            listForMonth[7] = new Array();
-            listForMonth[8] = new Array();
-            listForMonth[9] = new Array();
-            listForMonth[10] = new Array();
-            listForMonth[11] = new Array(25, 26, 31);
+            listForMonth[0] = [1];
+            listForMonth[1] = [];
+            listForMonth[2] = [];
+            listForMonth[3] = [];
+            listForMonth[4] = [1, 17];
+            listForMonth[5] = [];
+            listForMonth[6] = [];
+            listForMonth[7] = [];
+            listForMonth[8] = [];
+            listForMonth[9] = [];
+            listForMonth[10] = [];
+            listForMonth[11] = [25, 26];
     
         var easter = easterSunday(year),
             easterDate = easter[0],
@@ -149,7 +149,7 @@ function getCalInfo(when) {
                 listForMonth[currentMonth].push(forwardByDays);
             }
         };
-        
+
         listForMonth[currentMonth].push(forwardByDays);
         
         if ((forwardByDays+1) > daysInMonth(currentMonth, year)) {
