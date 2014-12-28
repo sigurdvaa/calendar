@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     getCalInfo();
-    var myClock = myClock = setInterval(updateClock, 1000);
+    var myClock = setInterval(updateClock, 1000);
 
 });
 
