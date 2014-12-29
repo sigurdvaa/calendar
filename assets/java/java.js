@@ -1,10 +1,13 @@
 $(document).ready(function() {
 
     getCalInfo();
+    
+    // Starts timer that updates the clock on todays date
     var myClock = setInterval(updateClock, 1000);
 
 });
 
+    // Updates todays date clock
 function updateClock() {
 
     var now = new Date();
@@ -23,8 +26,9 @@ function updateClock() {
     $('#today span#clock').html(newTime);
 }
 
+    // Collects all the info the calendar needs and builds it at the end
 function getCalInfo(when) {
-    //Current date-info
+
     var now = when == null ? new Date() : new Date(when),
         showToday = when == null ? true : false,
         year = now.getFullYear(),
@@ -41,7 +45,8 @@ function getCalInfo(when) {
         now = new Date(),
         showToday = now.getFullYear() == year && now.getMonth() == nrMonth ? true : false,
         now = null;
-        
+    
+    // If the user is requesting todays month, make sure that todays date is green and have a clock ticking
     if (showToday) {
         now = new Date();
         hours = now.getHours();
@@ -52,7 +57,7 @@ function getCalInfo(when) {
         myClock = setInterval(updateClock, 1000);
     };
     
-  
+    // Builds the first output of the clock so it can be placed on the right date
     hours = hours < 10 ? '0' + hours : hours;
     mins = mins < 10 ? '0' + mins : mins;
     secs = secs < 10 ? '0' + secs : secs;
@@ -78,6 +83,7 @@ function getCalInfo(when) {
         return first;
     }
     
+    // Returns amount of days in requested month
     function daysInMonth(mo, yr) {
         var nrDays = new Array(12);
         nrDays[0] = 31;
@@ -95,6 +101,7 @@ function getCalInfo(when) {
         return nrDays[mo];
     }
     
+    // Build array for each month containing date of special days and holiday
     var listForMonth;
    
     buildSpecialDaysLists();
@@ -159,6 +166,8 @@ function getCalInfo(when) {
         };
     }
     
+    
+    // Returns where or not the date is in the array of special dates
     function isSpecial(checkDate, whatMonth) {
         
         if (listForMonth[whatMonth].indexOf(checkDate) > -1) {
@@ -168,7 +177,8 @@ function getCalInfo(when) {
         }
         
     }
-
+    
+    // Returns the sunday a week before the eastersunday with date in answer[0] and month in answer[1]
     function easterSunday (InputYear) {
         var a = InputYear % 19;
         var b = Math.floor(InputYear/100);
@@ -194,11 +204,12 @@ function getCalInfo(when) {
             p -= 7;
         }
         
-        var svar = new Array(p, n);
+        var answer = new Array(p, n);
 
-        return svar;
+        return answer;
     }
-
+    
+    // Build the htmlcalendar output
     createCal();
     
 function createCal(){
@@ -206,7 +217,8 @@ function createCal(){
         var output = "<table><tr><th tabindex='0' class='calbtn' id='minusmonth'>-</th><th id='currentmonth' colspan='2'>"+month+"<th tabindex='0' class='calbtn' id='plusmonth'>+</th><th tabindex='0' class='calbtn' id='minusyear'>-</th><th id='currentyear'>"+year+"</th><th tabindex='0' class='calbtn' id='plusyear'>+</th></tr><tr><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td></tr>",
             amountWeeks = howManyWeeks(firstDayInMonth, nrDaysInMonth),
             currentDate = 1;
-
+        
+        // Add each week in the current month
         for (nrWeek = 0; nrWeek < amountWeeks; nrWeek++){
             output = output + "<tr>" + addWeek(nrWeek, firstDayInMonth) + "</tr>";
         }
@@ -215,6 +227,7 @@ function createCal(){
         $('.calendarwrap').html(output);
         calButtons();
 
+    // Builds requested week day by day
     function addWeek(week, startDay){
 
         var temp = "",
@@ -258,7 +271,8 @@ function createCal(){
         }
         return temp;
     }
-    
+        
+        // Returns number of week in current month
         function howManyWeeks(firstDay, daysInMonth){
         
             if (firstDay == 6) {
@@ -281,7 +295,8 @@ function createCal(){
         buildWeekNr();
         
         addWeekNr();
-    
+        
+        // Adds weeknr to the htmldocumented that has been created in createCal()
         function addWeekNr() {
             
             var trs = $('table tr');
@@ -293,6 +308,7 @@ function createCal(){
             };
         }
         
+        // Builds array for each month containing weeknrs
         function buildWeekNr(mo){
             
             var firstJanDayNr = new Date(year, 0, 1).getDay(),
@@ -360,6 +376,7 @@ function createCal(){
     }   
 }
 
+// Adds function to the plus and minus buttons on the calendar
 function calButtons() {
     
     $('.calbtn').on('click', function(){
@@ -392,10 +409,12 @@ function calButtons() {
             yr += 1;
         }
         output = yr + ", " + month + ", 1";
-
+        
+        //Calls the function that creates all the info needed for the next calendar and in the end of that function calls the function that creates the htmloutput to the document
         getCalInfo(output);
     });
     
+    // Returns monthnr based on the month name
     function monthNr(name){
 
         var names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Desember");

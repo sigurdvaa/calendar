@@ -1,1 +1,474 @@
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}body{font-family:Arial,sans-serif;font-size:100%;background-color:#eee;color:#333;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}img{max-width:100%;image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:optimize-contrast;-ms-interpolation-mode:bicubic}.wrap{max-width:960px;margin:0 auto;text-align:center}.calendarwrap{width:498px;margin:0 auto}.calendarwrap table{margin:50px auto;box-shadow:1px 1px 4px grey;background-color:#ddd}.calendarwrap table td,.calendarwrap table th{border:1px solid grey;width:60px;height:40px;padding:5px}.calendarwrap table th{text-align:center;border:none}.calendarwrap table td{text-align:right;vertical-align:top;cursor:pointer;position:relative}.calendarwrap table td:hover,.calendarwrap table td:focus{box-shadow:1px 1px 4px black;outline:0}.calendarwrap table td span#clock{color:#999;font-size:12px;display:block}.calendarwrap table td span.weeknr{color:#44f;font-size:10px;position:absolute;top:5px;left:5px;text-align:left;font-weight:normal}.calendarwrap table tr:nth-child(2) td{text-align:center;vertical-align:middle;height:30px;font-size:12px;font-weight:bold;cursor:default;border:none}.calendarwrap table tr:nth-child(2) td:hover{box-shadow:none}.calendarwrap table #today{font-size:24px;color:#0a0;padding-top:2px}.calendarwrap table #minusmonth,.calendarwrap table #plusmonth,.calendarwrap table #minusyear,.calendarwrap table #plusyear{cursor:pointer}.calendarwrap table #minusmonth:hover,.calendarwrap table #minusmonth:focus,.calendarwrap table #plusmonth:hover,.calendarwrap table #plusmonth:focus,.calendarwrap table #minusyear:hover,.calendarwrap table #minusyear:focus,.calendarwrap table #plusyear:hover,.calendarwrap table #plusyear:focus{outline:0;background-color:#666;color:#ccc}.calendarwrap table .noborder{border:none;padding:0;cursor:default}.calendarwrap table .noborder:hover{box-shadow:none}.calendarwrap table .sunday{color:#a00}.calendarwrap table .special{color:#d00;font-weight:bold}.calendarwrap table #today.special{color:#c00;font-weight:bold}.calendarwrap table #today.sunday{color:#a00}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 9, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+/* line 19, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+body {
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/* line 45, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/* line 57, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+audio, canvas, progress, video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline
+  /* 2 */ }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 67, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+/* line 78, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+[hidden], template {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 89, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+a {
+  background-color: transparent; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 98, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+a:active, a:hover {
+  outline: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/* line 109, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/* line 118, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+b, strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/* line 126, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/* line 135, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 144, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 153, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 162, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 169, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+sup {
+  top: -0.5em; }
+
+/* line 173, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+sub {
+  bottom: -0.25em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+/* line 184, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/* line 192, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/* line 203, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 211, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Contain overflow in all browsers.
+ */
+/* line 221, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+pre {
+  overflow: auto; }
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+/* line 232, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+/* line 256, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+button, input, optgroup, select, textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/* line 266, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/* line 278, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+button, select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 293, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 303, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 312, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 322, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+input {
+  line-height: normal; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 335, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/* line 347, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 357, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/* line 371, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 379, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 390, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0
+  /* 2 */ }
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/* line 399, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+textarea {
+  overflow: auto; }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/* line 408, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+optgroup {
+  font-weight: bold; }
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 419, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 425, E:/My Documents/GitHub/calendar/assets/SASS/normalize */
+td, th {
+  padding: 0; }
+
+/* line 4, E:/My Documents/GitHub/calendar/assets/SASS/style.sass */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  background-color: #eee;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+/* line 12, E:/My Documents/GitHub/calendar/assets/SASS/style.sass */
+img {
+  max-width: 100%;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: bicubic; }
+
+/* line 20, E:/My Documents/GitHub/calendar/assets/SASS/style.sass */
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center; }
+
+/* line 1, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+.calendarwrap {
+  width: 498px;
+  margin: 0 auto; }
+  /* line 4, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+  .calendarwrap table {
+    margin: 50px auto;
+    box-shadow: 1px 1px 4px grey;
+    background-color: #ddd; }
+    /* line 9, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table td, .calendarwrap table th {
+      border: 1px solid grey;
+      width: 60px;
+      height: 40px;
+      padding: 5px; }
+    /* line 15, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table th {
+      text-align: center;
+      border: none; }
+    /* line 19, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table td {
+      text-align: right;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative; }
+      /* line 25, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+      .calendarwrap table td:hover, .calendarwrap table td:focus {
+        box-shadow: 1px 1px 4px black;
+        outline: 0; }
+      /* line 29, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+      .calendarwrap table td span#clock {
+        color: #999;
+        font-size: 12px;
+        display: block; }
+      /* line 34, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+      .calendarwrap table td span.weeknr {
+        color: #44f;
+        font-size: 10px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        text-align: left;
+        font-weight: normal; }
+    /* line 42, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table tr:nth-child(2) td {
+      text-align: center;
+      vertical-align: middle;
+      height: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: default;
+      border: none; }
+      /* line 51, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+      .calendarwrap table tr:nth-child(2) td:hover {
+        box-shadow: none; }
+    /* line 54, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table #today {
+      font-size: 22px;
+      color: #0a0;
+      padding-top: 2px; }
+    /* line 59, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table #minusmonth, .calendarwrap table #plusmonth, .calendarwrap table #minusyear, .calendarwrap table #plusyear {
+      cursor: pointer; }
+      /* line 61, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+      .calendarwrap table #minusmonth:hover, .calendarwrap table #minusmonth:focus, .calendarwrap table #plusmonth:hover, .calendarwrap table #plusmonth:focus, .calendarwrap table #minusyear:hover, .calendarwrap table #minusyear:focus, .calendarwrap table #plusyear:hover, .calendarwrap table #plusyear:focus {
+        outline: 0;
+        background-color: #666;
+        color: #ccc; }
+    /* line 66, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table .noborder {
+      border: none;
+      padding: 0;
+      cursor: default; }
+      /* line 70, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+      .calendarwrap table .noborder:hover {
+        box-shadow: none; }
+    /* line 72, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table .sunday {
+      color: #a00; }
+    /* line 74, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table .special {
+      color: #d00;
+      font-weight: bold; }
+    /* line 78, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table #today.special {
+      color: #c00;
+      font-weight: bold; }
+    /* line 82, E:/My Documents/GitHub/calendar/assets/SASS/sections/calendar */
+    .calendarwrap table #today.sunday {
+      color: #a00; }
