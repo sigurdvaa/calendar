@@ -20,15 +20,23 @@
             text-align: right
             vertical-align: top
             cursor: pointer
+            position: relative
             
             &:hover, &:focus
                 box-shadow: 1px 1px 4px black
                 outline: 0
             
-            span
+            span#clock
                 color: #999
                 font-size: 12px
                 display: block
+            
+            span.weeknr
+                color: #44f
+                font-size: 10px
+                +position(absolute, 5px null null 5px)
+                text-align: left
+                font-weight: normal
             
         tr:nth-child(2)
             td
@@ -57,6 +65,7 @@
                 
         .noborder
             border: none
+            padding: 0
             cursor: default
             &:hover
                 box-shadow: none

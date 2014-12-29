@@ -20,7 +20,7 @@ function updateClock() {
     
     newTime = hours + ":" + mins + ":" + secs;
     
-    $('#today span').html(newTime);
+    $('#today span#clock').html(newTime);
 }
 
 function getCalInfo(when) {
@@ -57,7 +57,7 @@ function getCalInfo(when) {
     mins = mins < 10 ? '0' + mins : mins;
     secs = secs < 10 ? '0' + secs : secs;
     
-    time = "<span>" + hours + ":" + mins + ":" + secs + "</span>";
+    time = "<span id='clock'>" + hours + ":" + mins + ":" + secs + "</span>";
 
     function nameMonth(nr){
         var names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Desember");
@@ -204,7 +204,7 @@ function getCalInfo(when) {
 function createCal(){
 
         var output = "<table><tr><th tabindex='0' class='calbtn' id='minusmonth'>-</th><th id='currentmonth' colspan='2'>"+month+"<th tabindex='0' class='calbtn' id='plusmonth'>+</th><th tabindex='0' class='calbtn' id='minusyear'>-</th><th id='currentyear'>"+year+"</th><th tabindex='0' class='calbtn' id='plusyear'>+</th></tr><tr><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td></tr>",
-            amountWeeks = howManyWeeks(),
+            amountWeeks = howManyWeeks(firstDayInMonth, nrDaysInMonth),
             currentDate = 1;
 
         for (nrWeek = 0; nrWeek < amountWeeks; nrWeek++){
@@ -259,24 +259,105 @@ function createCal(){
         return temp;
     }
     
-    function howManyWeeks(){
+        function howManyWeeks(firstDay, daysInMonth){
         
-            if (firstDayInMonth == 6) {
-                if (nrDaysInMonth == 31) {
+            if (firstDay == 6) {
+                if (daysInMonth == 31) {
                     return 6;
                 }
-            }else if (firstDayInMonth == 0) {
-                if (nrDaysInMonth > 29) {
+            }else if (firstDay == 0) {
+                if (daysInMonth > 29) {
                     return 6;
                 }
-            }else if (firstDayInMonth == 1) {
-                if (nrDaysInMonth == 28) {
+            }else if (firstDay == 1) {
+                if (daysInMonth == 28) {
                     return 4;
                 }
             }
             return 5;
-        }  
-    }
+        }
+        
+        var weekNrArrayForMonth = new Array(12);
+        buildWeekNr();
+        
+        addWeekNr();
+    
+        function addWeekNr() {
+            
+            var trs = $('table tr');
+            
+            for(i=2;i<howManyWeeks(firstDayInMonth, nrDaysInMonth)+2;i++){
+                var temp = trs[i].childNodes[0].innerHTML;
+                temp = "<span class='weeknr'>" + weekNrArrayForMonth[nrMonth][i-2] + "</span>" + temp;
+                trs[i].childNodes[0].innerHTML = temp;                
+            };
+        }
+        
+        function buildWeekNr(mo){
+            
+            var firstJanDayNr = new Date(year, 0, 1).getDay(),
+                firstWeekNrOfYear = null,
+                lastDesDayNr = new Date(year, 11, 31).getDay(),
+                lastWeekNrOfYear = null;
+            
+            if (firstJanDayNr == 6){
+                firstWeekNrOfYear = isLeapYear(year-1) ? 53 : 52;
+            } else if (firstJanDayNr == 0) {
+                firstWeekNrOfYear = 52;
+            } else if (firstJanDayNr == 5) {
+                firstWeekNrOfYear = 53;
+            } else {
+                firstWeekNrOfYear = 1;
+            };
+            
+            if (lastDesDayNr == 4) {
+                lastWeekNrOfYear = 53;
+            } else if (lastDesDayNr == 5) {
+                lastWeekNrOfYear = isLeapYear(year) ? 53 : 52;
+            } else if (lastDesDayNr > 0 && lastDesDayNr < 4) {
+                lastWeekNrOfYear = 1;
+            } else {
+                lastWeekNrOfYear = 52;    
+            };
+            
+            w = firstWeekNrOfYear;
+            
+            for (m=0;m<12;m++) {
+
+                var firstDay = new Date(year, m, 1).getDay(),
+                    numberOfDays = daysInMonth(m, year),
+                    lastDay = new Date(year, m, numberOfDays).getDay(),
+                    end = howManyWeeks(firstDay, numberOfDays);
+                    
+                weekNrArrayForMonth[m] = new Array();
+
+                for(i=0;i<end;i++){
+
+                    weekNrArrayForMonth[m].push(w);
+                    
+                    if (m < 11) {
+                        if (w == 52 || w == 53) {
+                            w = 1;
+                        } else {
+                            w++;
+                        };
+                    } else {
+                        if (i == end - 2) {
+                            w = lastWeekNrOfYear;
+                        } else {
+                            w++;
+                        }
+                    }
+                };
+                            
+                if (lastDay != 0) {
+                    w--;
+                };
+                
+            };
+            
+        }    
+    }   
 }
 
 function calButtons() {
