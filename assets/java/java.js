@@ -145,7 +145,7 @@ function getCalInfo(when) {
                 };
             };
         };
-        
+
         for(s=0;s<49;s++) {
             forwardByDays += 1;
             if (forwardByDays > daysInMonth(currentMonth, year)) {
@@ -379,8 +379,12 @@ function createCal(){
 // Adds function to the plus and minus buttons on the calendar
 function calButtons() {
     
-    $('.calbtn').on('click', function(){
-        
+    var ua = navigator.userAgent,
+        uaEvent = (ua.match(/iP/gi)) ? "click touchstart" : "click";
+
+    $('.calbtn').on(uaEvent, function(e){
+        e.preventDefault();
+
         clearInterval(myClock);
         
         var yr = parseInt($('#currentyear').text()),
@@ -408,10 +412,11 @@ function calButtons() {
         }else if ($(this).is('#plusyear')) {
             yr += 1;
         }
-        output = yr + ", " + month + ", 1";
+        output = yr + "/" + month + "/1 00:00:00";
         
         //Calls the function that creates all the info needed for the next calendar and in the end of that function calls the function that creates the htmloutput to the document
         getCalInfo(output);
+                
     });
     
     // Returns monthnr based on the month name
